@@ -1,0 +1,13 @@
+<app-header></app-header>
+
+<div class='container-fluid'>
+
+  <div class='row'>
+
+    <app-nav-menu class="col-md-2 d-none d-md-block bg-light sidebar"></app-nav-menu>
+    <main class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4" [@triggerName]="prepareRoute(outlet)">
+      <router-outlet #outlet="outlet"></router-outlet>
+    </main>
+  </div>
+
+</div>

@@ -1,0 +1,10 @@
+
+<div *ngIf="status"  class="alert alert-danger text-center z-10" role="alert">
+Check your network connection
+ </div>
+
+<main [@routerTransition]="getPageTransition(routerOutlet)">
+  <router-outlet #routerOutlet="outlet">
+
+  </router-outlet>
+</main>

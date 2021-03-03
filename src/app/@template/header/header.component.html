@@ -1,0 +1,67 @@
+<!-- <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+  <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Inventory2.0
+    <span class="badge badge-warning ml-1">Beta</span>
+  </a>
+  <div class="menu-bar">
+    <ul >
+ 
+      <li style="margin-top: 15px;">
+        <a >
+           <fa-icon size="1x" style="color:white" [icon]="setting"></fa-icon>
+        </a>
+        <div class="sub-menu-1">
+          <ul>
+            <li *ngIf="account"><a [routerLink]="'Account'" >Account</a></li>
+            <li><a href="#">Log out</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+  </ul> 
+</nav> -->
+<nav class="navbar">
+  
+
+  <div class="container">
+
+    <div class="navbar-header">
+        <img src="http://144.217.234.79/logo.png" height="90" width="90" >
+    </div>
+    <div class="navbar-menu" id="open-navbar1">
+      <ul class="navbar-nav">
+        <li class="active"><a href="#"></a></li>
+        <!-- <li class="navbar-dropdown">
+          <a href="#" class="dropdown-toggler" data-dropdown="my-dropdown-id">
+            Categories <i class="fa fa-angle-down"></i>
+          </a>
+          <ul class="dropdown" id="my-dropdown-id">
+            <li><a href="#">Actions</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="separator"></li>
+            <li><a href="#">Seprated link</a></li>
+            <li class="separator"></li>
+            <li><a href="#">One more seprated link.</a></li>
+          </ul>
+        </li>
+        <li class="navbar-dropdown">
+          <a href="#" class="dropdown-toggler" data-dropdown="blog">
+            Blog <i class="fa fa-angle-down"></i>
+          </a>
+          <ul class="dropdown" id="blog">
+            <li><a href="#">Some category</a></li>
+            <li><a href="#">Some another category</a></li>
+            <li class="separator"></li>
+            <li><a href="#">Seprated link</a></li>
+            <li class="separator"></li>
+            <li><a href="#">One more seprated link.</a></li>
+          </ul>
+        </li> -->
+        <li><a>Acct Management</a></li>
+        <li><a>Cards</a></li>
+        <li><a>Clients</a></li>
+        <li><a (click)="Task()">Task Management</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
