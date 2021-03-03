@@ -1,0 +1,18 @@
+
+  <div *ngIf="success" class="alert alert-success" role="alert">
+    {{success}}
+  </div>
+
+<tsktable *ngIf="baseItems" [records]="baseItems" [caption]="'Task'" [settings]="projectSettings"
+ [searchText]="searchText" [loading]="loading"  [sn]="true"  [pending]="true" [api]="apis">
+</tsktable>
+
+
+<div class="col-12 mt-4">
+
+  <div *ngIf="error" class="alert alert-danger text-center" role="alert">
+    {{error}} <a (click)=" read('item')" class="alert-link">Click to retry</a>
+  </div>
+
+</div>
+

@@ -1,0 +1,108 @@
+<app-errors [error]="error">
+
+</app-errors>
+
+
+<app-success [success]="success"></app-success>
+<form class="form p-3" [formGroup]="task">
+  <div class="form-row m-4">
+    <div class="col-lg-12 col-sm-12">
+      <label for="inputLastName" class="label">Action Item</label>
+      <textarea   class="form-control rounded-0" id="exampleFormControlTextarea2"    [ngClass]="{ 'is-invalid': submitted && T.ActionItem.errors }" formControlName="ActionItem"  ></textarea>
+      <div *ngIf="submitted && T.ActionItem.errors" class="invalid-feedback mb-1">
+        <div *ngIf="T.ActionItem.errors.required">
+          Please provide a Action Item.
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-sm-12">
+      <label for="inputEmail" class="label">Task Type</label>
+      <div class="form-group">
+        <select formControlName="TaskType" (change)="onChange()"class="form-control">
+          <option [value]="'Choose Type'" selected="true" disabled>Choose Type</option>
+            <option *ngFor="let item of TaskType" [value]="item.ID+'-'+item.Description+'-'+item.TaskTypeName"> 
+              {{item.TaskTypeName}}
+          </option>
+       </select> 
+      </div>
+      <div *ngIf="submitted && T.TaskType.errors" class="invalid-feedback mb-1">
+        <div *ngIf="T.TaskType.errors.required">
+          Please provide a Task Type.
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-sm-12" *ngIf="TaskDes">
+      <label for="inputLastName" class="label">Task Description</label>
+      <input class="form-control" type="text"    [ngClass]="{ 'is-invalid': submitted && T.ResponsibleOwner.errors }" formControlName="TaskDescription">
+      <div *ngIf="submitted && T.ResponsibleOwner.errors" class="invalid-feedback mb-1">
+        <div *ngIf="T.ResponsibleOwner.errors.required">
+          Please provide a Responsible Owner.
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-sm-12">
+      <label for="inputEmail" class="label">Start Date</label>
+      <input class="form-control" type="date"    [ngClass]="{ 'is-invalid': submitted && T.StartDate.errors }" formControlName="StartDate">
+      <div *ngIf="submitted && T.StartDate.errors" class="invalid-feedback mb-1">
+        <div *ngIf="T.StartDate.errors.required">
+          Please provide a Start Date.
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-sm-12">
+      <label for="inputEmail" class="label">End Date</label>
+      <input class="form-control" type="date"    [ngClass]="{ 'is-invalid': submitted && T.EndDate.errors }" formControlName="EndDate">
+      <div *ngIf="submitted && T.EndDate.errors" class="invalid-feedback mb-1">
+        <div *ngIf="T.EndDate.errors.required">
+          Please provide a End Date.
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-sm-12">
+      <label for="inputLastName" class="label">Responsible Owner</label>
+      <select formControlName="ResponsibleOwner" (change)="onChange1()"class="form-control">
+        <option [value]="'Choose Employee'" selected="true" disabled>Choose Employee</option>
+          <option *ngFor="let item of Employee" [value]="item.Department+'-'+item.DepartmentHead+'-'+item.Email+'-'+item.EmployeeName"> 
+            {{item.EmployeeName}}
+        </option>
+     </select> 
+      <div *ngIf="submitted && T.ResponsibleOwner.errors" class="invalid-feedback mb-1">
+        <div *ngIf="T.ResponsibleOwner.errors.required">
+          Please provide a Responsible Owner.
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-sm-12">
+      <label for="inputLastName" class="label">Department</label>
+      <input class="form-control" type="text" readonly   [ngClass]="{ 'is-invalid': submitted && T.Department.errors }" formControlName="Department">
+      <div *ngIf="submitted && T.Department.errors" class="invalid-feedback mb-1">
+        <div *ngIf="T.Department.errors.required">
+          Please provide a Department.
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-sm-12">
+      <label for="inputLastName" class="label">Department HOD</label>
+
+      <input class="form-control rounded-0" id="exampleFormControlTextarea2" readonly   [ngClass]="{ 'is-invalid': submitted && T.DepartmentHOD.errors }" formControlName="DepartmentHOD" />
+      <div *ngIf="submitted && T.DepartmentHOD.errors" class="invalid-feedback mb-1">
+        <div *ngIf="T.DepartmentHOD.errors.required">
+          Please provide a Department HOD.
+        </div>
+      </div>
+    </div>
+  </div>
+  <button type="button" class="btn btn-success m-4" (click)="createTask()">
+    <div *ngIf="loading" class="spinner-border" role="status">
+      <span class="visually-hidden"></span>
+    </div>
+    <span *ngIf="!loading">Create Task</span>
+
+
+  </button>
+</form>

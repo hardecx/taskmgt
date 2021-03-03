@@ -1,0 +1,23 @@
+<tsktable *ngIf="baseItems" [records]="baseItems" [caption]="'Suppliers'" [settings]="projectSettings"
+  [routePage]="routePage" [searchText]="searchText"
+[api]="apis"
+  [loading]="loading"
+
+  >
+</tsktable>
+
+
+<div class="col-12 mt-4">
+
+
+
+  <div *ngIf="error" class="alert alert-danger text-center" role="alert">
+    {{error}} <a (click)=" read('supplier')" class="alert-link"  style="cursor: pointer;">Click to retry</a>
+  </div>
+
+  <div *ngIf="success" class="alert alert-success" role="alert">
+    {{success}}
+  </div>
+
+
+</div>
