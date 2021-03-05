@@ -1,14 +1,16 @@
+<app-back></app-back>
 <app-errors [error]="error">
 
 </app-errors>
 
 
 <app-success [success]="success"></app-success>
-<form class="form p-3" [formGroup]="task">
+<form class="form p-3" [formGroup]="task">  
   <div class="form-row m-4">
     <div class="col-lg-12 col-sm-12">
       <label for="inputLastName" class="label">Action Item</label>
-      <textarea   class="form-control rounded-0" id="exampleFormControlTextarea2"    [ngClass]="{ 'is-invalid': submitted && T.ActionItem.errors }" formControlName="ActionItem"  ></textarea>
+      <textarea  *ngIf="edit || create" class="form-control rounded-0" id="exampleFormControlTextarea2"    [ngClass]="{ 'is-invalid': submitted && T.ActionItem.errors }" formControlName="ActionItem"  ></textarea>
+      <input *ngIf="approve" class="form-control" type="text"  formControlName="ActionItem" readonly>
       <div *ngIf="submitted && T.ActionItem.errors" class="invalid-feedback mb-1">
         <div *ngIf="T.ActionItem.errors.required">
           Please provide a Action Item.
@@ -19,12 +21,15 @@
     <div class="col-lg-4 col-sm-12">
       <label for="inputEmail" class="label">Task Type</label>
       <div class="form-group">
-        <select formControlName="TaskType" (change)="onChange()"class="form-control">
+        <select formControlName="TaskType" *ngIf="create || edit" (change)="onChange()" class="form-control">
           <option [value]="'Choose Type'" selected="true" disabled>Choose Type</option>
-            <option *ngFor="let item of TaskType" [value]="item.ID+'-'+item.Description+'-'+item.TaskTypeName"> 
+            <option *ngFor="let item of TaskType"  [value]="item.ID"> 
               {{item.TaskTypeName}}
           </option>
        </select> 
+       
+       <!-- <input *ngIf="edit" class="form-control" type="text"   formControlName="TaskTypeName" readonly>-->
+       <input *ngIf="approve" class="form-control" type="text"   value="{{this.array.TaskTypeName}}" readonly> 
       </div>
       <div *ngIf="submitted && T.TaskType.errors" class="invalid-feedback mb-1">
         <div *ngIf="T.TaskType.errors.required">
@@ -35,17 +40,18 @@
 
     <div class="col-lg-4 col-sm-12" *ngIf="TaskDes">
       <label for="inputLastName" class="label">Task Description</label>
-      <input class="form-control" type="text"    [ngClass]="{ 'is-invalid': submitted && T.ResponsibleOwner.errors }" formControlName="TaskDescription">
-      <div *ngIf="submitted && T.ResponsibleOwner.errors" class="invalid-feedback mb-1">
-        <div *ngIf="T.ResponsibleOwner.errors.required">
-          Please provide a Responsible Owner.
+      <input class="form-control" type="text"    [ngClass]="{ 'is-invalid': submitted && T.TaskDescription.errors }" formControlName="TaskDescription">
+      <div *ngIf="submitted && T.TaskDescription.errors" class="invalid-feedback mb-1">
+        <div *ngIf="T.TaskDescription.errors.required">
+          Please provide a Task Description.
         </div>
       </div>
     </div>
 
     <div class="col-lg-4 col-sm-12">
       <label for="inputEmail" class="label">Start Date</label>
-      <input class="form-control" type="date"    [ngClass]="{ 'is-invalid': submitted && T.StartDate.errors }" formControlName="StartDate">
+      <input *ngIf="create || edit" class="form-control" type="datetime-local" [ngClass]="{ 'is-invalid': submitted && T.StartDate.errors }" formControlName="StartDate">
+      <input *ngIf="approve" class="form-control" type="datetime-local"  formControlName="StartDate" readonly>
       <div *ngIf="submitted && T.StartDate.errors" class="invalid-feedback mb-1">
         <div *ngIf="T.StartDate.errors.required">
           Please provide a Start Date.
@@ -55,7 +61,8 @@
 
     <div class="col-lg-4 col-sm-12">
       <label for="inputEmail" class="label">End Date</label>
-      <input class="form-control" type="date"    [ngClass]="{ 'is-invalid': submitted && T.EndDate.errors }" formControlName="EndDate">
+      <input *ngIf="create || edit" class="form-control" type="datetime-local" [ngClass]="{ 'is-invalid': submitted && T.EndDate.errors }" formControlName="EndDate">
+      <input *ngIf="approve" class="form-control" type="datetime-local"  formControlName="EndDate" readonly>
       <div *ngIf="submitted && T.EndDate.errors" class="invalid-feedback mb-1">
         <div *ngIf="T.EndDate.errors.required">
           Please provide a End Date.
@@ -65,14 +72,16 @@
 
     <div class="col-lg-4 col-sm-12">
       <label for="inputLastName" class="label">Responsible Owner</label>
-      <select formControlName="ResponsibleOwner" (change)="onChange1()"class="form-control">
+      <select *ngIf="create || edit" formControlName="ResponsibleOwnerName" (change)="onChange1()"class="form-control">
         <option [value]="'Choose Employee'" selected="true" disabled>Choose Employee</option>
-          <option *ngFor="let item of Employee" [value]="item.Department+'-'+item.DepartmentHead+'-'+item.Email+'-'+item.EmployeeName"> 
+          <option *ngFor="let item of Employee" [value]="item.EmployeeName"> 
             {{item.EmployeeName}}
         </option>
      </select> 
-      <div *ngIf="submitted && T.ResponsibleOwner.errors" class="invalid-feedback mb-1">
-        <div *ngIf="T.ResponsibleOwner.errors.required">
+     <!-- <input *ngIf="edit" class="form-control" type="text"  formControlName="ResponsibleOwnerName" readonly> -->
+     <input *ngIf="approve" class="form-control" type="text"  value="{{this.array.ResponsibleOwnerName}}" readonly>
+      <div *ngIf="submitted && T.ResponsibleOwnerName.errors" class="invalid-feedback mb-1">
+        <div *ngIf="T.ResponsibleOwnerName.errors.required">
           Please provide a Responsible Owner.
         </div>
       </div>
@@ -97,7 +106,7 @@
       </div>
     </div>
   </div>
-  <button type="button" class="btn btn-success m-4" (click)="createTask()">
+  <button *ngIf="create" type="button" class="btn btn-success m-4" (click)="createTask()">
     <div *ngIf="loading" class="spinner-border" role="status">
       <span class="visually-hidden"></span>
     </div>
@@ -105,4 +114,34 @@
 
 
   </button>
+</form>
+<button *ngIf="edit" style="margin-left: 40px;"type="button" class="btn btn-success" (click)="update()">
+  <span >Update Task</span>
+</button>
+<form class="form p-3" [formGroup]="complete" *ngIf="approve">
+  <div class="row m-4">
+    <div class="col-lg-4 col-sm-12">
+      <label for="inputEmail" class="label">Status</label>
+      <div class="form-group">
+        <select formControlName="Status" class="form-control">
+          <option [value]="'Choose Type'" selected="true" disabled>Choose Status</option>
+            <option [value]="'Ongoing'">Ongoing</option>
+            <option [value]="'Completed'">Completed</option>
+       </select> 
+
+      </div>
+  
+    </div>
+    <div class="col-md-6">
+      <label for="inputLastName" class="label">Comment</label>  
+      <input class="form-control rounded-0" id="exampleFormControlTextarea2" formControlName="Comment" />
+
+    </div>
+  </div>
+
+    <button style="margin-left: 30px;" type="button" class="btn btn-success" (click)="approveTask()">
+      <span >Response</span>
+    </button>
+
+  
 </form>

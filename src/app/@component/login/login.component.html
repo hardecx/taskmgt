@@ -68,9 +68,9 @@
             <input type="password" name="Password" placeholder="Password" formControlName="pass" />
           </p>
           <p>
-            <input *ngIf="!_isloading"  [disabled]="auth.invalid" (click)="onLogin()" class="btn" type="submit"/>
+            <input *ngIf="!_isloading"  [disabled]="auth.invalid" (click)="onLogin()" class="btn" type="submit" value="Sign In"/>
           </p>
-          <div *ngIf="_isloading" class="spinner-border" role="status">
+          <div *ngIf="_isloading" class="spinner-border" style="color:#ff6500;" role="status">
             <span class="sr-only">Loading...</span>
           </div>
           <p>

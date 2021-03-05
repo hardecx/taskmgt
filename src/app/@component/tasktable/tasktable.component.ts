@@ -12,23 +12,23 @@ import { BaseComponent } from '../base/base.component';
 })
 export class TasktableComponent extends BaseComponent implements OnInit {
 
-  // routePage ="../edit";
-  apis='customer'
+
+  routePage ="../create";
+  apis='task'
   projectSettings: ColumnSetting[] = [
     {
-      primaryKey: "ID",
+      primaryKey: "TaskID",
       header: "Task ID",
       routerParams:true,
-      colHid:true
 
     },
     {
       primaryKey: "ActionItem",
-      header: "ActionItem",
+      header: "Action Item",
 
     },
     {
-      primaryKey: "TaskType",
+      primaryKey: "TaskTypeName",
       header: "Task Type",
     },
     {
@@ -52,11 +52,14 @@ export class TasktableComponent extends BaseComponent implements OnInit {
       primaryKey: "Department",
       header: "Department",
     },
+    // {
+    //   primaryKey: "DepartmentHOD",
+    //   header: "Department Head",
+    // },
     {
-      primaryKey: "DepartmentHOD",
-      header: "DepartmentHOD",
+      primaryKey: "Status",
+      header: "Status",
     },
-
 
 
 
@@ -65,16 +68,13 @@ export class TasktableComponent extends BaseComponent implements OnInit {
   ];
 
   constructor(public api:ApiService,public enums: APIENUM,public router:Router) {
-
-
-
-
     super(api, APIENUM.Task);
   }
 
 
   ngOnInit() {
-    this.read(APIENUM.Task);
+    this.readbyresponsibleowner(APIENUM.Task);
+    
   }
 
 }

@@ -20,10 +20,11 @@ import { TasktableComponent } from '../../@component/tasktable/tasktable.compone
 import { MprComponent } from '../../@component/mpr/mpr.component';
 import { EmmComponent } from '../../@component/emm/emm.component';
 import { OtherComponent } from '../../@component/other/other.component';
+import { TaskupdateComponent } from '../../@component/taskupdate/taskupdate.component';
 
 
 @NgModule({
-  declarations: [DashboardComponent, HomeComponent,NavMenuComponent,HeaderComponent,BaseComponent, ExpenseComponent, EditComponent, TaskComponent, TasktableComponent, MprComponent, EmmComponent, OtherComponent],
+  declarations: [DashboardComponent, HomeComponent,NavMenuComponent,HeaderComponent,BaseComponent, ExpenseComponent, EditComponent, TaskComponent, TasktableComponent, MprComponent, EmmComponent, OtherComponent, TaskupdateComponent],
   imports: [
     CommonModule,
     NgbModule,

@@ -1,3 +1,4 @@
+import { TaskupdateComponent } from './../../@component/taskupdate/taskupdate.component';
 import { OtherComponent } from './../../@component/other/other.component';
 import { EmmComponent } from './../../@component/emm/emm.component';
 import { MprComponent } from './../../@component/mpr/mpr.component';
@@ -30,8 +31,9 @@ const routes2: Routes = [
     // canActivate: [ AuthAdminGuard], invoice
     children: [
  
-      { path: 'dashboard', component: TaskComponent,data: { animationState: 'Two' } },
+      { path: 'create/:id/:api/:value/:name', component: TaskComponent,data: { animationState: 'Two' } },
       { path: 'table', component: TasktableComponent,data: { animationState: 'Two' } },
+      { path: 'taskupdate', component: TaskupdateComponent,data: { animationState: 'Two' } },
       { path: 'mpr', component: MprComponent,data: { animationState: 'Two' } },
       { path: 'emm', component: EmmComponent,data: { animationState: 'Two' } },
       { path: 'others', component: OtherComponent,data: { animationState: 'Two' } },

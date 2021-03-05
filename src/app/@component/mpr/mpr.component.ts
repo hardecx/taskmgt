@@ -16,10 +16,9 @@ export class MprComponent extends BaseComponent implements OnInit {
   apis='customer'
   projectSettings: ColumnSetting[] = [
     {
-      primaryKey: "ID",
+      primaryKey: "TaskID",
       header: "Task ID",
       routerParams:true,
-      colHid:true
 
     },
     {
@@ -28,7 +27,7 @@ export class MprComponent extends BaseComponent implements OnInit {
 
     },
     {
-      primaryKey: "TaskType",
+      primaryKey: "TaskTypeName",
       header: "Task Type",
     },
     {
@@ -57,7 +56,10 @@ export class MprComponent extends BaseComponent implements OnInit {
       header: "DepartmentHOD",
     },
 
-
+    {
+      primaryKey: "Status",
+      header: "Status",
+    },
 
 
 

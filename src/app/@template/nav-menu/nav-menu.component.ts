@@ -18,13 +18,13 @@ export class NavMenuComponent  {
         {
           title: 'Task Input',
           // icon: 'map',
-          link: 'dashboard',
+          link: 'table',
           home: true,
         },
         {
           title: 'Task Update',
           // icon: 'briefcase-outline',
-          link: 'table',
+          link: 'taskupdate',
         },
         {
           title: 'Monthly Performance Review',

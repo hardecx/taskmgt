@@ -25,6 +25,7 @@ export class TableComponent implements OnChanges {
   @HostBinding("attr.class") class = "col-md-9 ml-sm-auto col-lg-10 pt-3 px-4";
   @Input() records: any[] = [];
   @Input() api: string = '';
+  @Input() name: string = '';
   @Input() caption: string = '';
   @Input() hover: string = '';
   @Input() error: string = '';
@@ -97,8 +98,8 @@ export class TableComponent implements OnChanges {
       .map((country, i) => ({ id: i + 1, ...country }))
       .slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize);
   }
-  search(v1:any,v2:any,v3:any,v4:any){
-    this.router.navigate(['main/'+v1,v2,v3,v4])
+  search(v1:any,v2:any,v3:any,v4:any,v5:any){
+    this.router.navigate(['main/'+v1,v2,v3,v4,v5])
 
    }
 

@@ -148,7 +148,7 @@
             <tr *ngFor="let record of records | search : searchText |sort:direction:column:type  ; let i = index"
              >
               <td *ngIf="sn">{{i+1}}</td>
-              <td *ngFor="let map of columnMaps " (click)="search(routePage,record[settings[routerId].primaryKey],api, settings[routerId].primaryKey)">
+              <td *ngFor="let map of columnMaps " (click)="search(routePage,record[settings[routerId].primaryKey],api, settings[routerId].primaryKey,name)">
                 <span *ngIf="map.colHid">
 
                 </span>
@@ -160,13 +160,15 @@
                   {{ record[map.primaryKey]  | currency:'₦':'symbol' }}
                 </span>
                 <span *ngIf="map.primaryKey==='Status'|| map.header==='Status'">
-                  <span *ngIf="record[map.primaryKey] ==='Pending'"
+                  <span *ngIf="record[map.primaryKey] ==='Ongoing'"
                     class="badge badge-dark ml-1 p-2">{{ record[map.primaryKey]  }}</span>
                   <span *ngIf="record[map.primaryKey] ==='Rejected'"
                     class="badge badge-danger ml-1 p-2">{{ record[map.primaryKey]  }}</span>
-                  <span *ngIf="record[map.primaryKey] ==='Approved'"
+                    <span *ngIf="record[map.primaryKey] ==='Deleted'"
+                    class="badge badge-danger ml-1 p-2">{{ record[map.primaryKey]  }}</span>
+                  <span *ngIf="record[map.primaryKey] ==='Updated'"
                     class="badge badge-success ml-1 p-2">{{ record[map.primaryKey]  }}</span>
-                <span *ngIf="record[map.primaryKey] ==='Active'"
+                <span *ngIf="record[map.primaryKey] ==='Completed'"
                 class="badge badge-success ml-1 p-2">{{ record[map.primaryKey]  }}</span>
             </span>
               </td>

@@ -97,7 +97,7 @@ setTimeout(()=>{
     let value;
     this.questions=[];
     const questions: QuestionBase<string>[]=[];
-    this.api.read_one2(this.apis, { [this.value]: this.id }).subscribe((res: any) => {
+    this.api.read_one(this.apis, { [this.value]: this.id }).subscribe((res: any) => {
 
 if(res['records'][0]){
   value =res['records'][0];
