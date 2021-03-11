@@ -192,7 +192,7 @@ createTask() {
     this.task.disable();
 
 console.log({...this.task.value})
-    this.api.create(APIENUM.Task,{...this.task.value, TaskType:this.TaskID}).subscribe((res:any)=>{
+    this.api.create(APIENUM.Task,{...this.task.value, TaskType:this.TaskID,  EndDate:this.task.value.EndDate.replace('T', ' '), StartDate:this.task.value.StartDate.replace('T', ' ')}).subscribe((res:any)=>{
       this.loading = false;
       this.task.reset();
       this.success = res.message;
@@ -323,6 +323,9 @@ approved(){
   })
 
   )
+}
+timeline(){
+this.router.navigateByUrl(`main/timeline/${this.apis}`)
 }
 approveTask() {
   this.complete.get("TaskID")?.setValue(this.array.TaskID)

@@ -2,7 +2,7 @@
 <app-errors [error]="error">
 
 </app-errors>
-
+<a *ngIf="edit || approve" class="timeline" (click)="timeline()">Click here to track task</a>
 
 <app-success [success]="success"></app-success>
 <form class="form p-3" [formGroup]="task">  
@@ -106,7 +106,7 @@
       </div>
     </div>
   </div>
-  <button *ngIf="create" type="button" class="btn btn-success m-4" (click)="createTask()">
+  <button *ngIf="create" type="button" class="btn btn-warning m-4" (click)="createTask()">
     <div *ngIf="loading" class="spinner-border" role="status">
       <span class="visually-hidden"></span>
     </div>
@@ -115,7 +115,7 @@
 
   </button>
 </form>
-<button *ngIf="edit" style="margin-left: 40px;"type="button" class="btn btn-success" (click)="update()">
+<button *ngIf="edit" style="margin-left: 40px;"type="button" class="btn btn-warning" (click)="update()">
   <span >Update Task</span>
 </button>
 <form class="form p-3" [formGroup]="complete" *ngIf="approve">
@@ -125,7 +125,7 @@
       <div class="form-group">
         <select formControlName="Status" class="form-control">
           <option [value]="'Choose Type'" selected="true" disabled>Choose Status</option>
-            <option [value]="'Ongoing'">Ongoing</option>
+            <option [value]="'Work In Progress'">Work In Progress</option>
             <option [value]="'Completed'">Completed</option>
        </select> 
 
@@ -134,12 +134,12 @@
     </div>
     <div class="col-md-6">
       <label for="inputLastName" class="label">Comment</label>  
-      <input class="form-control rounded-0" id="exampleFormControlTextarea2" formControlName="Comment" />
+      <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" formControlName="Comment"></textarea>
 
     </div>
   </div>
 
-    <button style="margin-left: 30px;" type="button" class="btn btn-success" (click)="approveTask()">
+    <button style="margin-left: 40px;" type="button" class="btn btn-warning" (click)="approveTask()">
       <span >Response</span>
     </button>
 

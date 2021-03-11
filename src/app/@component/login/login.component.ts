@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
 
     .subscribe(
       (res:any)=>{
-
+       console.log(res)
       this._auth.storeUserData(res);
       this._router.navigateByUrl('main/table');
 

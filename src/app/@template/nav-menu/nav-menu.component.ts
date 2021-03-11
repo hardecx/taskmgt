@@ -40,8 +40,7 @@ export class NavMenuComponent  {
           title: 'Other meetings',
         //  icon: faAddressBook,
           link: 'others',
-        },
-
+        }
       ]
 
     }

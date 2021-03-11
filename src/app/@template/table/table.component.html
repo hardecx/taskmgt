@@ -145,23 +145,26 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let record of records | search : searchText |sort:direction:column:type  ; let i = index"
+            <tr *ngFor="let record of records | search : searchText | sort:direction:column:type  ; let i = index"
              >
               <td *ngIf="sn">{{i+1}}</td>
               <td *ngFor="let map of columnMaps " (click)="search(routePage,record[settings[routerId].primaryKey],api, settings[routerId].primaryKey,name)">
                 <span *ngIf="map.colHid">
 
                 </span>
-                <span *ngIf="!map.currency && map.primaryKey!='Status' && map.header!=='Status' && !map.colHid">
+                <span *ngIf="!map.date && !map.currency && map.primaryKey!='Status' && map.header!=='Status' && !map.colHid">
                   {{ record[map.primaryKey]  }}
                 </span>
 
                 <span *ngIf="map.currency">
                   {{ record[map.primaryKey]  | currency:'₦':'symbol' }}
                 </span>
+                <span *ngIf="map.date">
+                  {{ record[map.primaryKey]  | date:'medium' }}
+                </span>
                 <span *ngIf="map.primaryKey==='Status'|| map.header==='Status'">
-                  <span *ngIf="record[map.primaryKey] ==='Ongoing'"
-                    class="badge badge-dark ml-1 p-2">{{ record[map.primaryKey]  }}</span>
+                  <span *ngIf="record[map.primaryKey] ==='Work In Progress'"
+                    class="badge badge-warning ml-1 p-2">{{ record[map.primaryKey]  }}</span>
                   <span *ngIf="record[map.primaryKey] ==='Rejected'"
                     class="badge badge-danger ml-1 p-2">{{ record[map.primaryKey]  }}</span>
                     <span *ngIf="record[map.primaryKey] ==='Deleted'"
@@ -170,7 +173,10 @@
                     class="badge badge-success ml-1 p-2">{{ record[map.primaryKey]  }}</span>
                 <span *ngIf="record[map.primaryKey] ==='Completed'"
                 class="badge badge-success ml-1 p-2">{{ record[map.primaryKey]  }}</span>
+                <span *ngIf="record[map.primaryKey] ==='Overdue'"
+                class="badge badge-danger ml-1 p-2">{{ record[map.primaryKey]  }}</span>
             </span>
+     
               </td>
             </tr>
 

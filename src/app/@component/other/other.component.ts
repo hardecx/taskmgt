@@ -24,7 +24,7 @@ export class OtherComponent extends BaseComponent implements OnInit {
     },
     {
       primaryKey: "ActionItem",
-      header: "ActionItem",
+      header: "Action Item",
 
     },
     {
@@ -39,10 +39,12 @@ export class OtherComponent extends BaseComponent implements OnInit {
     {
       primaryKey: "StartDate",
       header: "Start Date",
+      date:true
     },
     {
       primaryKey: "EndDate",
       header: "End Date",
+      date:true
     },
     {
       primaryKey: "ResponsibleOwnerName",
@@ -54,7 +56,7 @@ export class OtherComponent extends BaseComponent implements OnInit {
     },
     {
       primaryKey: "DepartmentHOD",
-      header: "DepartmentHOD",
+      header: "Department Head",
     },
 
     {

@@ -6,6 +6,7 @@ export class ColumnSetting {
   action?:Function;
   routerParams?:boolean=false;
   currency?:boolean=false;
+  date?:boolean=false;
   asc?:boolean=false;
   colHid?:boolean=false;
 }

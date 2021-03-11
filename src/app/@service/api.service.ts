@@ -62,7 +62,26 @@ export class ApiService {
   }
   
   completetask(type: APIENUM  | string, value: any) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
     return this._http.post(`${this.url}${type.toString()}/completetask.php`, value);
+  }
+  timelineread(type: APIENUM  | string, value: any) {
+    return this._http.post(`${this.url}${type.toString()}/timelineread.php`, value);
   }
   }
 

@@ -1,0 +1,26 @@
+<app-back></app-back>
+<section class="root" >
+  <figure>
+    <img src="https://cdn.shortpixel.ai/client/q_glossy,ret_img/https://meetingking.com/wp-content/images/meetingking_tasks.png" alt="">
+    <figcaption>
+      <h4>{{array.ActionItem}}</h4>
+      <h5>{{array.TaskTypeName}}</h5>
+      <!-- <h6>Start Date {{array.StartDate | date:'medium'}} **** End Date {{array.EndDate | date:'medium'}}</h6> -->
+    <h6>{{array.TaskDescription}}</h6>
+    </figcaption>
+  </figure>
+  <div class="order-track">
+    <div class="order-track-step" *ngFor="let item of elements">
+      <div class="order-track-status">
+        <span class="order-track-status-dot"></span>
+        <span class="order-track-status-line"></span>
+      </div>
+      <div class="order-track-text" >
+        <h6>{{item.Status}}</h6>
+        <p class="order-track-text-stat">{{item.Comment}}</p>
+        <span class="order-track-text-sub">By {{item.PostedUser}} on {{item.DateCreated | date: 'medium'}}</span>
+      </div>
+    </div>
+    <span class="order-track-status-dots"></span>
+  </div>
+</section>
