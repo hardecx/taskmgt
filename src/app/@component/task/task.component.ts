@@ -62,7 +62,7 @@ export class TaskComponent implements OnInit {
       let value = params.params;
       this.apis=value['id'];
       this.name=value['name'];
-      if(this.name == "update"){
+      if(this.name == "input"){
         this.edit = true
         this.api.read(APIENUM.TaskType, {}).subscribe((res:any)=>{
           console.log(res.records);
@@ -79,7 +79,7 @@ export class TaskComponent implements OnInit {
     
         }))
       }
-      if(this.name == "input"){
+      if(this.name == "update"){
         this.approve = true
       }
       if(this.name == "create"){
@@ -196,7 +196,7 @@ console.log({...this.task.value})
       this.loading = false;
       this.task.reset();
       this.success = res.message;
-      this.router.navigateByUrl('main/taskupdate');
+      this.router.navigateByUrl('main/table');
       setTimeout(() => {
         this.success = "";
         // this.router.navigateByUrl('main/sales');
@@ -261,7 +261,7 @@ update(){
     this.loading = false;
     this.task.reset();
     this.success = res.message;
-    this.router.navigateByUrl('main/taskupdate');
+    this.router.navigateByUrl('main/table');
     setTimeout(() => {
       this.success = "";
 
@@ -297,7 +297,8 @@ approved(){
   .subscribe((res:any)=>{
     this.complete.reset();
     this.success = res.message;
-    this.router.navigateByUrl('main/table');
+    this.router.navigateByUrl('main/taskupdate');
+    this.timeline()
     setTimeout(() => {
       this.success = "";
 
@@ -333,7 +334,9 @@ approveTask() {
  
   if (this.complete.value.Comment === "") {
    this.error = "Please add comment"
-  } else {
+  } else if(this.complete.value.Status === ""){
+    this.error = "Please add status"
+  }else{
 
     this.submitted = false;
     this

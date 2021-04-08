@@ -67,8 +67,8 @@ a {
     }
     
     th {
-      background-color: rgba(248, 86, 11, 0.979);
-      border: 1px solid rgba(248, 86, 11, 0.979);
+      background-color: #1A202E;
+      border: 1px solid #1A202E;
       font-weight: normal;
       text-align: center;
       color: white;
@@ -168,12 +168,12 @@ a {
     }
     
     th[scope="row"] {
-      background-color: rgba(248, 86, 11, 0.979);
+      background-color: #1A202E;
       color: white;
       
       @media (min-width: $bp-lisa) {
-        border-left: 1px solid  rgba(248, 86, 11, 0.979);
-        border-bottom: 1px solid  rgba(248, 86, 11, 0.979);
+        border-left: 1px solid  #1A202E;
+        border-bottom: 1px solid  #1A202E;
       }
       
       @media (min-width: $bp-bart) {
@@ -187,14 +187,14 @@ a {
       text-align: right;
       
       @media (min-width: $bp-bart) {
-        border-left: 1px solid  rgba(248, 86, 11, 0.979);
-        border-bottom: 1px solid  rgba(248, 86, 11, 0.979);
+        border-left: 1px solid  #1A202E;
+        border-bottom: 1px solid  #1A202E;
         text-align: center; 
       }
       
       &:last-of-type {
         @media (min-width: $bp-bart) {
-          border-right: 1px solid  rgba(248, 86, 11, 0.979);
+          border-right: 1px solid  #1A202E;
         } 
       }
     }
@@ -219,4 +219,33 @@ a {
       }
     } 
   }
+}
+.searchfield {
+  border-radius: 25px;
+  border: 1px solid rgb(187, 187, 187);
+  padding: 13px; 
+  width: 220px;
+  height: 20px; 
+}
+input[type="date"]:before {
+  content: attr(placeholder) !important;
+  color: #aaa;
+  margin-right: 1em;
+}
+input[type="date"]:focus:before,
+input[type="date"]:valid:before {
+  content: "";
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  background: transparent;
+  bottom: 0;
+  color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: auto;
 }

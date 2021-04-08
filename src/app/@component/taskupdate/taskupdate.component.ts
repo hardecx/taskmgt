@@ -74,7 +74,7 @@ export class TaskupdateComponent extends BaseComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.readbyposteduser(APIENUM.Task);
+    this.readbyresponsibleowner(APIENUM.Task);
   }
 
 }

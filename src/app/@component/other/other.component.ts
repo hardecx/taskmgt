@@ -68,19 +68,30 @@ export class OtherComponent extends BaseComponent implements OnInit {
 
 
   ];
-
+  d = new Date();
+  date = this.d.getDate();
+  month = this.d.getMonth() + 1; // Since getMonth() returns month from 0-11 not 1-12
+  year = this.d.getFullYear();
+  months = this.d.getMonth()
   constructor(public api:ApiService,public enums: APIENUM,public router:Router) {
-
-
-
-
     super(api, APIENUM.Task);
   }
 
 
   ngOnInit() {
+    var dateStr =(this.year + "-" + this.month + "-" + this.date).toString();
+
+    if(this.months === 0){
+      this.months = 12;
+      this.year  = this.d.getFullYear() -1;
+      var dateSt = (this.year + "-" + this.months + "-" + this.date).toString();
+    } else {
+      var dateSt =(this.year + "-" + this.months + "-" + this.date).toString();
+    }
     this.readtasktype(APIENUM.Task, {
-      "TaskType": "Others"
+      "TaskType": "Others",
+      "StartDate":dateSt,
+      "EndDate":dateStr,
     });
   }
 

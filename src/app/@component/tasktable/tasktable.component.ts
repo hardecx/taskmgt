@@ -75,8 +75,7 @@ export class TasktableComponent extends BaseComponent implements OnInit {
 
 
   ngOnInit() {
-    this.readbyresponsibleowner(APIENUM.Task);
-    
+    this.readbyposteduser(APIENUM.Task);
   }
 
 }

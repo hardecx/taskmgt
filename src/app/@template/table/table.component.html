@@ -48,7 +48,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let record of records | search : searchText |sort:direction:column:type  ; let i = index"
+            <tr *ngFor="let record of records | search : searchText |sort:direction:column:type  ;  
              >
               <td *ngIf="sn">{{i+1}}</td>
               <td *ngFor="let map of columnMaps " (click)="search(routePage,record[settings[routerId].primaryKey],api, settings[routerId].primaryKey)">
@@ -100,110 +100,113 @@
         </strong>
       </h3>
     </div>
-    <div class="col-12" *ngIf="tableShow">
-      <app-searchbox (messageEmitter)='receiveMessage($event)'></app-searchbox>
-      <!-- <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
-      placeholder="&#61442;  Start searching for a Trails">
- [routerLink]="[routePage, records[i][settings[routerId].primaryKey],api,settings[routerId].primaryKey]"
-    -->
-
-    </div>
-    <div class="col-12">
-      <div class="table-responsive">
-<p *ngIf="pending">You have a total of ({{records.length}}) pending tasks</p>
-        <table class="responsive-table">
-
-          <thead class="black white-text">
-            <tr>
-              <th *ngIf="sn">S/N</th>
-              <th *ngFor="let map of columnMaps">
-
-
-                <span *ngIf="!map.asc && !map.colHid">
-                  {{ map.header }}
-                </span>
-                <span *ngIf="map.colHid && !map.asc">
-
-                </span>
-                <span *ngIf="map.asc">
-
-                  <span *ngIf="fshow" appSortParams (param)="setSortParams($event)" dir="up"  [id]="map.primaryKey">
-
-                    <fa-icon    appSortParams  dir="up" (param)="setSortParams($event)" [id]="map.primaryKey" size="1x" [icon]="arrowUp"></fa-icon>     {{ map.header }}
-                  </span>
-                  <span *ngIf="!fshow" appSortParams (param)="setSortParams($event)" dir="down"  [id]="map.primaryKey">
-
-                    <fa-icon  appSortParams dir="down"  size="1x" (param)="setSortParams($event)" [id]="map.primaryKey" [icon]="arrowDown"></fa-icon>
-                    {{ map.header }}
-                  </span>
-
-
-                </span>
-
-
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let record of records | search : searchText | sort:direction:column:type  ; let i = index"
-             >
-              <td *ngIf="sn">{{i+1}}</td>
-              <td *ngFor="let map of columnMaps " (click)="search(routePage,record[settings[routerId].primaryKey],api, settings[routerId].primaryKey,name)">
-                <span *ngIf="map.colHid">
-
-                </span>
-                <span *ngIf="!map.date && !map.currency && map.primaryKey!='Status' && map.header!=='Status' && !map.colHid">
-                  {{ record[map.primaryKey]  }}
-                </span>
-
-                <span *ngIf="map.currency">
-                  {{ record[map.primaryKey]  | currency:'₦':'symbol' }}
-                </span>
-                <span *ngIf="map.date">
-                  {{ record[map.primaryKey]  | date:'medium' }}
-                </span>
-                <span *ngIf="map.primaryKey==='Status'|| map.header==='Status'">
-                  <span *ngIf="record[map.primaryKey] ==='Work In Progress'"
-                    class="badge badge-warning ml-1 p-2">{{ record[map.primaryKey]  }}</span>
-                  <span *ngIf="record[map.primaryKey] ==='Rejected'"
-                    class="badge badge-danger ml-1 p-2">{{ record[map.primaryKey]  }}</span>
-                    <span *ngIf="record[map.primaryKey] ==='Deleted'"
-                    class="badge badge-danger ml-1 p-2">{{ record[map.primaryKey]  }}</span>
-                  <span *ngIf="record[map.primaryKey] ==='Updated'"
-                    class="badge badge-success ml-1 p-2">{{ record[map.primaryKey]  }}</span>
-                <span *ngIf="record[map.primaryKey] ==='Completed'"
-                class="badge badge-success ml-1 p-2">{{ record[map.primaryKey]  }}</span>
-                <span *ngIf="record[map.primaryKey] ==='Overdue'"
-                class="badge badge-danger ml-1 p-2">{{ record[map.primaryKey]  }}</span>
-            </span>
-     
-              </td>
-            </tr>
-
-          </tbody>
-        </table>
-
-        <!-- <div class="d-flex justify-content-between p-2">
-          <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize" (pageChange)="refreshtable()">
-          </ngb-pagination>
-
-          <select class="custom-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshtable()">
-            <option [ngValue]="2">2 items per page</option>
-            <option [ngValue]="4">4 items per page</option>
-            <option [ngValue]="6">6 items per page</option>
-          </select>
-        </div> -->
-
+    <div class="row m-2" >
+      <app-searchbox (messageEmitter)='receiveMessage($event)' *ngIf="tableShow"></app-searchbox>
+      <div class="col" *ngIf="dateShow">
+        <div class="panel-body">
+      
+    
+          <input (change)="filterabyDate($event,'s')" type="date" name="search" autocomplete="off" class="form-control searchfield" placeholder="Start date:"> 
+          
+        </div>
       </div>
-      <app-loader *ngIf="loading">
-
-      </app-loader>
-
-
-
+      <div class="col" *ngIf="dateShow">
+        <div class="panel-body">
+          <input  (change)="filterabyDate($event,'e')" type="date" name="search" autocomplete="off" class="form-control searchfield"  placeholder="End date:"> 
+        </div>
+        
+      </div>
     </div>
 
+<div class="col-12">
+<div class="table-responsive">
+<p *ngIf="pending">You have a total of ({{records.length}}) pending tasks</p>
+  <table class="responsive-table" id="table">
+
+    <thead class="black white-text">
+      <tr>
+        <th *ngIf="sn">S/N</th>
+        <th *ngFor="let map of columnMaps">
 
 
+          <span *ngIf="!map.asc && !map.colHid">
+            {{ map.header }}
+          </span>
+          <span *ngIf="map.colHid && !map.asc">
+
+          </span>
+          <span *ngIf="map.asc">
+
+            <span *ngIf="fshow" appSortParams (param)="setSortParams($event)" dir="up"  [id]="map.primaryKey">
+
+              <fa-icon    appSortParams  dir="up" (param)="setSortParams($event)" [id]="map.primaryKey" size="1x" [icon]="arrowUp"></fa-icon>     {{ map.header }}
+            </span>
+            <span *ngIf="!fshow" appSortParams (param)="setSortParams($event)" dir="down"  [id]="map.primaryKey">
+
+              <fa-icon  appSortParams dir="down"  size="1x" (param)="setSortParams($event)" [id]="map.primaryKey" [icon]="arrowDown"></fa-icon>
+              {{ map.header }}
+            </span>
+
+
+          </span>
+
+
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let record of records | search : searchText | sort:direction:column:type  ; let i = index"
+       >
+        <td *ngIf="sn">{{i+1}}</td>
+        <td *ngFor="let map of columnMaps " (click)="search(routePage,record[settings[routerId].primaryKey],api, settings[routerId].primaryKey,name)">
+          <span *ngIf="map.colHid">
+
+          </span>
+          <span *ngIf="!map.date && !map.currency && map.primaryKey!='Status' && map.header!=='Status' && !map.colHid">
+            {{ record[map.primaryKey]  }}
+          </span>
+
+          <span *ngIf="map.currency">
+            {{ record[map.primaryKey]  | currency:'₦':'symbol' }}
+          </span>
+          <span *ngIf="map.date">
+            {{ record[map.primaryKey]  | date:'medium' }}
+          </span>
+          <span *ngIf="map.primaryKey==='Status'|| map.header==='Status'">
+            <span *ngIf="record[map.primaryKey] ==='Work In Progress'"
+              class="badge badge-warning ml-1 p-2">{{ record[map.primaryKey]  }}</span>
+            <span *ngIf="record[map.primaryKey] ==='To Do'"
+              class="badge badge-secondary ml-1 p-2">{{ record[map.primaryKey]  }}</span>
+              <span *ngIf="record[map.primaryKey] ==='Deleted'"
+              class="badge badge-danger ml-1 p-2">{{ record[map.primaryKey]  }}</span>
+            <span *ngIf="record[map.primaryKey] ==='Updated'"
+              class="badge badge-success ml-1 p-2">{{ record[map.primaryKey]  }}</span>
+          <span *ngIf="record[map.primaryKey] ==='Completed'"
+          class="badge badge-success ml-1 p-2">{{ record[map.primaryKey]  }}</span>
+          <span *ngIf="record[map.primaryKey] ==='Overdue'"
+          class="badge badge-danger ml-1 p-2">{{ record[map.primaryKey]  }}</span>
+      </span>
+
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <div class="d-flex justify-content-between p-2">
+    <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize" (pageChange)="refreshtable()">
+    </ngb-pagination>
+
+    <select class="custom-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshtable()">
+      <option [ngValue]="5">5 items per page</option>
+      <option [ngValue]="10">10 items per page</option>
+    </select>
   </div>
+
+</div>
+<app-loader *ngIf="loading">
+
+</app-loader>
+
+;           
 </div>

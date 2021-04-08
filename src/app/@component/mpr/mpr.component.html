@@ -4,14 +4,14 @@
   </div>
 
 <tsktable *ngIf="baseItems" [records]="baseItems" [caption]="'Monthly Performance Review'" [settings]="projectSettings"
- [searchText]="searchText" [loading]="loading"  [sn]="true" [api]="apis">
+ [searchText]="searchText" [loading]="loading" [sn]="true" [api]="apis" [taskType]="type">
 </tsktable>
 
 
 <div class="col-12 mt-4">
 
   <div *ngIf="error" class="alert alert-danger text-center" role="alert">
-    {{error}} <a (click)=" read('item')" class="alert-link">Click to retry</a>
+    {{error}} <a (click)=" read('task')" class="alert-link">Click to retry</a>
   </div>
 
 </div>
