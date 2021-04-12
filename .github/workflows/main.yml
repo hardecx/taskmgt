@@ -36,6 +36,6 @@ jobs:
           PASSWORD: ${{ secrets.PASSWORD }}
         with:
           source: "./task"
-          target: "/var/www/html/"
+          target: "/var/www/html/task"
           strip_components: 2 # this is important
 #ssh -p 2810 root@66.70.202.147
