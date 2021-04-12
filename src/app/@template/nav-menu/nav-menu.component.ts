@@ -121,6 +121,31 @@ export class NavMenuComponent  {
         }
       ]
     }
+    if(sessionStorage.getItem('Email')==='duwaifo@pagefinancials.com') {
+
+      this.Menu=   [
+        {
+          title: 'Task Input',
+          // icon: 'map',
+          link: 'table',
+        },
+        {
+          title: 'Monthly Performance Review',
+        //  icon: faAddressBook,
+          link: 'mpr',
+        },
+        {
+          title: 'Executive Management Meeting',
+        //  icon: faAddressBook,
+          link: 'emm',
+        },
+        {
+          title: 'Other Tasks',
+        //  icon: faAddressBook,
+          link: 'others',
+        }
+      ]
+    }
   }
 
   isExpanded = false;
