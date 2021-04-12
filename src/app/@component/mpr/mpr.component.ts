@@ -12,23 +12,23 @@ import { BaseComponent } from '../base/base.component';
 })
 export class MprComponent extends BaseComponent implements OnInit {
 
-  // routePage ="../edit";
-  apis='customer'
+  routePage = `../timeline`;
+  apis='report'
+  type="MPR"
   projectSettings: ColumnSetting[] = [
     {
-      primaryKey: "ID",
+      primaryKey: "TaskID",
       header: "Task ID",
       routerParams:true,
-      colHid:true
 
     },
     {
       primaryKey: "ActionItem",
-      header: "ActionItem",
+      header: "Action Item",
 
     },
     {
-      primaryKey: "TaskType",
+      primaryKey: "TaskTypeName",
       header: "Task Type",
     },
     {
@@ -39,10 +39,12 @@ export class MprComponent extends BaseComponent implements OnInit {
     {
       primaryKey: "StartDate",
       header: "Start Date",
+      date:true
     },
     {
       primaryKey: "EndDate",
       header: "End Date",
+      date:true
     },
     {
       primaryKey: "ResponsibleOwnerName",
@@ -52,30 +54,44 @@ export class MprComponent extends BaseComponent implements OnInit {
       primaryKey: "Department",
       header: "Department",
     },
+    // {
+    //   primaryKey: "DepartmentHOD",
+    //   header: "Department Head",
+    // },
+
     {
-      primaryKey: "DepartmentHOD",
-      header: "DepartmentHOD",
+      primaryKey: "Status",
+      header: "Status",
     },
 
 
 
 
-
-
   ];
+  d = new Date();
+  date = this.d.getDate();
+  month = this.d.getMonth() + 1; // Since getMonth() returns month from 0-11 not 1-12
+  year = this.d.getFullYear();
+  months = this.d.getMonth()
 
   constructor(public api:ApiService,public enums: APIENUM,public router:Router) {
-
-
-
-
-    super(api, APIENUM.Task);
+    super(api, APIENUM.Task);  
   }
 
-
   ngOnInit() {
+    var dateStr =(this.year + "-" + this.month + "-" + this.date).toString();
+
+    if(this.months === 0){
+      this.months = 12;
+      this.year  = this.d.getFullYear() -1;
+      var dateSt = (this.year + "-" + this.months + "-" + this.date).toString();
+    } else {
+      var dateSt =(this.year + "-" + this.months + "-" + this.date).toString();
+    }
     this.readtasktype(APIENUM.Task, {
-      "TaskType": "MPR"
+      "TaskType": this.type,
+      "StartDate":dateSt,
+      "EndDate":dateStr,
     });
   }
 

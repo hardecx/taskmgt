@@ -1,16 +1,16 @@
 <nav class="h-100 d-inline-block">
   <div class="sidebar-sticky">
 
-    <!-- <ul class="nav flex-column">
-      <li class="nav-item" [routerLink]="'dashboard'" routerLinkActive="active">
+    <ul class="nav flex-column">
+      <li class="nav-item" [routerLink]="'taskupdate'" routerLinkActive="active">
         <a class="nav-link" >
-          <fa-icon size="1x" [icon]="icon"></fa-icon>
-          Dashboard
+          Task Update
+
 
         </a>
       </li>
 
-    </ul> -->
+    </ul>
 
     <ul class="nav flex-column" *ngFor="let item of Menu" >
       <li class="nav-item" [routerLink]="item.link" routerLinkActive="active">
@@ -24,5 +24,6 @@
       </li>
 
       </ul>
+      
   </div>
 </nav>

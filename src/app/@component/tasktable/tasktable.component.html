@@ -1,18 +1,29 @@
+  <div class="row">
 
-  <div *ngIf="success" class="alert alert-success" role="alert">
-    {{success}}
+    <div class="col-6">
+
+    </div>
+    <div class="col-6">
+      <div class="row float-right">
+        <div class="col-12">
+          <button [routerLink]="'../create/0/task/0/create'" style="cursor:pointer; background-color: #ff6500; color:#fff" type="button" class="btn">Create task</button>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+  <div class="container mt-3">
+    <div *ngIf="error" class="alert alert-danger text-center" role="alert">
+      {{error}} <a (click)=" read('item')" class="alert-link">Click to retry</a>
+    </div>
+    <div *ngIf="success" class="alert alert-success" role="alert">
+      {{success}}
+  </div>
   </div>
 
-<tsktable *ngIf="baseItems" [records]="baseItems" [caption]="'Task'" [settings]="projectSettings"
- [searchText]="searchText" [loading]="loading"  [sn]="true"  [pending]="true" [api]="apis">
-</tsktable>
-
-
-<div class="col-12 mt-4">
-
-  <div *ngIf="error" class="alert alert-danger text-center" role="alert">
-    {{error}} <a (click)=" read('item')" class="alert-link">Click to retry</a>
-  </div>
-
-</div>
+  <tsktable *ngIf="baseItems" [records]="baseItems" [caption]="'Task Input'" [settings]="projectSettings" [routePage]="routePage" 
+  [searchText]="searchText" [loading]="loading" [taskType]="'empty'" [sn]="true" [api]="apis" [name]="'input'" [slash]="'readbyposteduser'">
+  </tsktable>
 

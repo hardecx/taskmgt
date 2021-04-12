@@ -1,3 +1,4 @@
+import { TaskupdateComponent } from './../../@component/taskupdate/taskupdate.component';
 import { OtherComponent } from './../../@component/other/other.component';
 import { EmmComponent } from './../../@component/emm/emm.component';
 import { MprComponent } from './../../@component/mpr/mpr.component';
@@ -5,24 +6,10 @@ import { TasktableComponent } from './../../@component/tasktable/tasktable.compo
 import { TaskComponent } from './../../@component/task/task.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-// import { DashboardComponent } from 'src/app/@component/dashboard/dashboard.component';
-import { EditComponent } from 'src/app/@component/edit/edit.component';
-// import { ExpenseComponent } from 'src/app/@component/expense/expense.component';
 import { HomeComponent } from 'src/app/@component/home/home.component';
+import { TimelinetableComponent } from 'src/app/@component/timelinetable/timelinetable.component';
+import { TimelineComponent } from 'src/app/@component/timeline/timeline.component';
 
-// const routes: Routes = [
-//   {
-//     path: '',
-//     component: HomeComponent,
-//     // canActivate: [ AuthAdminGuard], invoice
-//     children: [{ path: 'item', component: DashboardComponent,data: { animationState: 'Two' } },
-//     { path: 'expenses', component: ExpenseComponent,data: { animationState: 'Three' } },
-//     { path: 'dashboard', component: TaskComponent,data: { animationState: 'Two' } },
-//     { path: 'table', component: TasktableComponent,data: { animationState: 'Two' } },
-//     { path: 'edit/:id/:api/:value', component: EditComponent,data: { animationState: 'Two' } }
-//     ],
-//   },
-// ];
 const routes2: Routes = [
   {
     path: '',
@@ -30,12 +17,14 @@ const routes2: Routes = [
     // canActivate: [ AuthAdminGuard], invoice
     children: [
  
-      { path: 'dashboard', component: TaskComponent,data: { animationState: 'Two' } },
+      { path: 'create/:id/:api/:value/:name', component: TaskComponent,data: { animationState: 'Three' } },
       { path: 'table', component: TasktableComponent,data: { animationState: 'Two' } },
+      { path: 'timelinetable', component: TimelinetableComponent,data: { animationState: 'Two' } },
+      { path: 'timeline/:id/:api/:value/:name', component: TimelineComponent,data: { animationState: 'Three' } },
+      { path: 'taskupdate', component: TaskupdateComponent,data: { animationState: 'Two' } },
       { path: 'mpr', component: MprComponent,data: { animationState: 'Two' } },
       { path: 'emm', component: EmmComponent,data: { animationState: 'Two' } },
       { path: 'others', component: OtherComponent,data: { animationState: 'Two' } },
-    { path: 'edit/:id/:api/:value', component: EditComponent,data: { animationState: 'Two' } },
 
   ],
   },

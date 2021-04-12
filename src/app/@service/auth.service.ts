@@ -39,6 +39,7 @@ export class AuthService {
     sessionStorage.setItem('PWFName',resp.data.PWFName);
    sessionStorage.setItem("Department", resp.data.Department);
    sessionStorage.setItem("Location", resp.data.Location)
+   sessionStorage.setItem("Email", resp.data.Email)
     // sessionStorage.setItem("Email", payload.Email);
     // sessionStorage.setItem("Admin", payload.Admin);
     // sessionStorage.setItem("exp", payload.exp);

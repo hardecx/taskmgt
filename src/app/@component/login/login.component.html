@@ -48,7 +48,7 @@
         <h2>Task Management</h2>
         <fa-icon size="3x" [icon]="icon"></fa-icon>
         <p style="margin-top: 20px;">
-        Managing your task through its life cycle. Tasks planning, tracking, and reporting 
+        Managing your tasks through its life cycle. Task planning, tracking, and reporting 
         </p>
 
       </div>
@@ -68,9 +68,9 @@
             <input type="password" name="Password" placeholder="Password" formControlName="pass" />
           </p>
           <p>
-            <input *ngIf="!_isloading"  [disabled]="auth.invalid" (click)="onLogin()" class="btn" type="submit"/>
+            <input *ngIf="!_isloading"  [disabled]="auth.invalid" (click)="onLogin()" class="btn" type="submit" value="Sign In"/>
           </p>
-          <div *ngIf="_isloading" class="spinner-border" role="status">
+          <div *ngIf="_isloading" class="spinner-border" style="color:#ff6500;" role="status">
             <span class="sr-only">Loading...</span>
           </div>
           <p>
@@ -81,7 +81,7 @@
       </div>
     </div>
   </div>
-  <div class="credit">
+  <!-- <div class="credit">
     <a>Built with ❤️ by  Fosterfield Developers(2021)</a>
-  </div>
+  </div> -->
 </div>

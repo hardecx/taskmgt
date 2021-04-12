@@ -203,4 +203,72 @@ export class BaseComponent implements OnInit {
         }
       );
   }
+  readbyposteduser(item: APIENUM, value:any){
+    
+    this.loading = true;
+    this.error = "";
+    this.api
+      .readbyposteduser(item,value)
+
+
+
+
+      .subscribe(
+        (res: any) => {
+
+          this.loading = false;
+          this.baseItems = res.records;
+
+
+        },
+        (err: any) => {
+
+
+          this.loading = false;
+
+          if (err.status === 0 && err.error instanceof ProgressEvent) {
+            // A client-side or network error occurred. Handle it accordingly.
+
+            this.error = "Please check your internet";
+          } else {
+            this.error = err.error.message;
+          }
+
+        }
+      );
+  }
+  readbyresponsibleowner(item: APIENUM, value:any){
+    
+    this.loading = true;
+    this.error = "";
+    this.api
+      .readbyresponsibleowner(item,value)
+
+
+
+
+      .subscribe(
+        (res: any) => {
+
+          this.loading = false;
+          this.baseItems = res.records;
+
+
+        },
+        (err: any) => {
+
+
+          this.loading = false;
+
+          if (err.status === 0 && err.error instanceof ProgressEvent) {
+            // A client-side or network error occurred. Handle it accordingly.
+
+            this.error = "Please check your internet";
+          } else {
+            this.error = err.error.message;
+          }
+
+        }
+      );
+  }
 }

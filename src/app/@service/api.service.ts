@@ -54,6 +54,37 @@ export class ApiService {
   readtasktype(type: APIENUM  | string, value: any) {
     return this._http.post(`${this.url}${type.toString()}/readtasktype.php`, value);
   }
+  special(type: APIENUM  | string, value: any, slash:any) {
+    return this._http.post(`${this.url}${type.toString()}/${slash.toString()}.php`, value);
+  }
+  readbyresponsibleowner(type: APIENUM  | string, value: any) {
+    return this._http.post(`${this.url}${type.toString()}/readbyresponsibleowner.php`, value);
+  }
+  readbyposteduser(type: APIENUM  | string, value: any) {
+    return this._http.post(`${this.url}${type.toString()}/readbyposteduser.php`, value);
+  }
+  
+  completetask(type: APIENUM  | string, value: any) {
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    return this._http.post(`${this.url}${type.toString()}/completetask.php`, value);
+  }
+  timelineread(type: APIENUM  | string, value: any) {
+    return this._http.post(`${this.url}${type.toString()}/timelineread.php`, value);
+  }
   }
 

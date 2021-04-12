@@ -1,0 +1,15 @@
+<div class="container mt-3">
+  <div *ngIf="error" class="alert alert-danger text-center" role="alert">
+    {{error}} <a (click)=" read('item')" class="alert-link">Click to retry</a>
+  </div>
+  <div *ngIf="success" class="alert alert-success" role="alert">
+    {{success}}
+</div>
+</div>
+
+
+<tsktable *ngIf="baseItems" [records]="baseItems" [caption]="'Task Update'" [settings]="projectSettings" [routePage]="routePage" 
+[searchText]="searchText" [loading]="loading" [taskType]="'empty'"  [sn]="true" [api]="apis" [name]="'update'" [slash]="'readbyresponsibleowner'">
+</tsktable>
+
+
