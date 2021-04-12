@@ -19,6 +19,7 @@ import { ErrorsComponent } from 'src/app/@component/errors/errors.component';
 import { StatusComponent } from 'src/app/@component/status/status.component';
 import { SearchPipe, SortParamsDirective, SortPipe } from 'src/app/@pipe/search.pipe';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { JwPaginationComponent, JwPaginationModule } from 'jw-angular-pagination';
 
 
 
@@ -27,6 +28,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
   imports: [
     CommonModule,
     RouterModule,
+    JwPaginationModule,
     FormsModule,
     NgxChartsModule,
     ReactiveFormsModule,
@@ -36,6 +38,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
   ],
   exports: [
     HttpClientModule,
+    JwPaginationComponent,
     ReactiveFormsModule,
     CommonModule,
     NgxChartsModule,

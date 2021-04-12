@@ -23,7 +23,7 @@ import { TimelinetableComponent } from '../../@component/timelinetable/timelinet
 
 
 @NgModule({
-  declarations: [HomeComponent,NavMenuComponent,HeaderComponent,BaseComponent, TaskComponent, TasktableComponent, MprComponent, EmmComponent, OtherComponent, TaskupdateComponent, TimelineComponent, TimelinetableComponent],
+  declarations: [HomeComponent, NavMenuComponent,HeaderComponent,BaseComponent, TaskComponent, TasktableComponent, MprComponent, EmmComponent, OtherComponent, TaskupdateComponent, TimelineComponent, TimelinetableComponent],
   imports: [
     CommonModule,
     NgbModule,

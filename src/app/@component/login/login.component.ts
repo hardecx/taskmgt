@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
       (res:any)=>{
        console.log(res)
       this._auth.storeUserData(res);
-      this._router.navigateByUrl('main/table');
+      this._router.navigateByUrl('main/taskupdate');
 
     },(err:any)=>{
       this._isloading=false;

@@ -56,6 +56,7 @@ export class TableComponent implements OnChanges {
 
   page = 1;
   pageSize = 2;
+  pageOfItems: any[];
   collectionSize = this.records.length;
   endDate: any=null;
   startDate: any=null;
@@ -132,6 +133,12 @@ export class TableComponent implements OnChanges {
 
 
    }
-
-
+   trackByFn(index:any, item:any) {
+    this.page=index
+    return index; // or item.id
+  }
+   onChangePage(pageOfItems: Array<any>) {
+    // update current page of items
+    this.pageOfItems = pageOfItems;
+}
 }

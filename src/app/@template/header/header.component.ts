@@ -20,25 +20,12 @@ account:boolean=false
   ngOnInit(): void {
     
   }
-Task(){
-  sessionStorage.removeItem('Menu')
-  sessionStorage.setItem('Menu','Task')
-  location.reload();
-}
-Client(){
-  sessionStorage.removeItem('Menu')
-  sessionStorage.setItem('Menu','Client')
-  location.reload();
-}
-Card(){
-  sessionStorage.removeItem('Menu')
-  sessionStorage.setItem('Menu','Card')
+// Task(){
+//   sessionStorage.removeItem('Menu')
+//   sessionStorage.setItem('Menu','Task')
+//   location.reload();
+// }
 
-}
-Acct(){
-  sessionStorage.removeItem('Menu')
-  sessionStorage.setItem('Menu','Acct')
-}
 logoff() {
   sessionStorage.clear()
   localStorage.clear()

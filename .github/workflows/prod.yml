@@ -1,4 +1,4 @@
-name: Payroll Production server
+name: Task Production server
 
 on:
   push:
@@ -23,8 +23,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      - run: yarn
-      - run: yarn global add @angular/cli > /dev/null
+      - run: npm install
+      - run: npm install --g @angular/cli > /dev/null
       - run: ng build --prod
 
       - name: copy file via ssh key
@@ -35,7 +35,7 @@ jobs:
           PORT:  ${{ secrets.PPORT }}
           PASSWORD: ${{ secrets.PPASSWORD }}
         with:
-          source: "./payroll"
+          source: "./task"
           target: "/var/www/html/"
           strip_components: 2 # this is important
 #ssh -p 2810 root@66.70.202.147

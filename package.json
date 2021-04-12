@@ -32,6 +32,7 @@
     "html2canvas": "^1.0.0-rc.7",
     "jquery": "^3.6.0",
     "jspdf": "^2.3.0",
+    "jw-angular-pagination": "^1.2.0",
     "ng-connection-service": "^1.0.4",
     "ngx-quicklink": "^0.2.6",
     "rxjs": "~6.6.0",
