@@ -54,11 +54,14 @@ export class ApiService {
   readtasktype(type: APIENUM  | string, value: any) {
     return this._http.post(`${this.url}${type.toString()}/readtasktype.php`, value);
   }
-  readbyresponsibleowner(type: APIENUM  | string) {
-    return this._http.post(`${this.url}${type.toString()}/readbyresponsibleowner.php`, {});
+  special(type: APIENUM  | string, value: any, slash:any) {
+    return this._http.post(`${this.url}${type.toString()}/${slash.toString()}.php`, value);
   }
-  readbyposteduser(type: APIENUM  | string) {
-    return this._http.post(`${this.url}${type.toString()}/readbyposteduser.php`, {});
+  readbyresponsibleowner(type: APIENUM  | string, value: any) {
+    return this._http.post(`${this.url}${type.toString()}/readbyresponsibleowner.php`, value);
+  }
+  readbyposteduser(type: APIENUM  | string, value: any) {
+    return this._http.post(`${this.url}${type.toString()}/readbyposteduser.php`, value);
   }
   
   completetask(type: APIENUM  | string, value: any) {

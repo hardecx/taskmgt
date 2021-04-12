@@ -203,12 +203,12 @@ export class BaseComponent implements OnInit {
         }
       );
   }
-  readbyposteduser(item: APIENUM){
+  readbyposteduser(item: APIENUM, value:any){
     
     this.loading = true;
     this.error = "";
     this.api
-      .readbyposteduser(item)
+      .readbyposteduser(item,value)
 
 
 
@@ -237,12 +237,12 @@ export class BaseComponent implements OnInit {
         }
       );
   }
-  readbyresponsibleowner(item: APIENUM){
+  readbyresponsibleowner(item: APIENUM, value:any){
     
     this.loading = true;
     this.error = "";
     this.api
-      .readbyresponsibleowner(item)
+      .readbyresponsibleowner(item,value)
 
 
 

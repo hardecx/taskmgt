@@ -15,19 +15,15 @@
 
   </div>
   <div class="container mt-3">
-
-  </div>
-  <div *ngIf="success" class="alert alert-success" role="alert">
-      {{success}}
-  </div>
-  <tsktable *ngIf="baseItems" [records]="baseItems" [caption]="'Task Input'" [settings]="projectSettings" [routePage]="routePage" 
-  [searchText]="searchText" [loading]="loading"  [dateShow]="false"  [sn]="true" [api]="apis" [name]="'input'">
-  </tsktable>
-  <div class="col-12 mt-4">
-
     <div *ngIf="error" class="alert alert-danger text-center" role="alert">
       {{error}} <a (click)=" read('item')" class="alert-link">Click to retry</a>
     </div>
-
+    <div *ngIf="success" class="alert alert-success" role="alert">
+      {{success}}
   </div>
+  </div>
+
+  <tsktable *ngIf="baseItems" [records]="baseItems" [caption]="'Task Input'" [settings]="projectSettings" [routePage]="routePage" 
+  [searchText]="searchText" [loading]="loading" [taskType]="'empty'" [sn]="true" [api]="apis" [name]="'input'" [slash]="'readbyposteduser'">
+  </tsktable>
 

@@ -20,7 +20,7 @@ const routes2: Routes = [
       { path: 'create/:id/:api/:value/:name', component: TaskComponent,data: { animationState: 'Three' } },
       { path: 'table', component: TasktableComponent,data: { animationState: 'Two' } },
       { path: 'timelinetable', component: TimelinetableComponent,data: { animationState: 'Two' } },
-      { path: 'timeline/:id', component: TimelineComponent,data: { animationState: 'Three' } },
+      { path: 'timeline/:id/:api/:value/:name', component: TimelineComponent,data: { animationState: 'Three' } },
       { path: 'taskupdate', component: TaskupdateComponent,data: { animationState: 'Two' } },
       { path: 'mpr', component: MprComponent,data: { animationState: 'Two' } },
       { path: 'emm', component: EmmComponent,data: { animationState: 'Two' } },

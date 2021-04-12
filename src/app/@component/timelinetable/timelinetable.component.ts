@@ -72,7 +72,7 @@ export class TimelinetableComponent extends BaseComponent implements OnInit {
 
 
   ngOnInit() {
-    this.readbyposteduser(APIENUM.Task);  
+    this.readbyposteduser(APIENUM.Task, {});  
   }
 
 }

@@ -20,7 +20,6 @@ a {
     color: rgba(75,138,178,1); 
   }
 }
-
 .container {
   margin: 5% 3%;
   
@@ -77,6 +76,9 @@ a {
         text-align: left; 
       }
     }
+    th:nth-child(3) {
+     width: auto;
+    }
   }
   
   // Set these items to display: block for narrow viewports
@@ -89,7 +91,10 @@ a {
     text-align: left;
     white-space: normal;
   }
-  
+  td:nth-child(3) {
+   width: 100vw;
+   white-space: wrap;
+  }
   tr {   
     @media (min-width: $bp-bart) {
       // Undo display: block 
@@ -198,7 +203,7 @@ a {
         } 
       }
     }
-    
+
     td[data-type=currency] {
       text-align: right; 
     }

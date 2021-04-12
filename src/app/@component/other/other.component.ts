@@ -13,8 +13,8 @@ import { BaseComponent } from '../base/base.component';
 })
 export class OtherComponent extends BaseComponent implements OnInit {
 
-  // routePage ="../edit";
-  apis='customer'
+  routePage = `../timeline`;
+  apis='report'
   projectSettings: ColumnSetting[] = [
     {
       primaryKey: "TaskID",
@@ -54,10 +54,10 @@ export class OtherComponent extends BaseComponent implements OnInit {
       primaryKey: "Department",
       header: "Department",
     },
-    {
-      primaryKey: "DepartmentHOD",
-      header: "Department Head",
-    },
+    // {
+    //   primaryKey: "DepartmentHOD",
+    //   header: "Department Head",
+    // },
 
     {
       primaryKey: "Status",
@@ -68,6 +68,7 @@ export class OtherComponent extends BaseComponent implements OnInit {
 
 
   ];
+  taskType="Others";
   d = new Date();
   date = this.d.getDate();
   month = this.d.getMonth() + 1; // Since getMonth() returns month from 0-11 not 1-12

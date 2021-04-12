@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 import { faArrowDown, faArrowUp, faHome } from '@fortawesome/free-solid-svg-icons';
 import { APIENUM } from 'src/app/@service/api.type';
 import { ColumnSetting } from 'src/app/models/layout.model';
+declare var $: any;
 
 //import { ColumnSetting } from "src/app/@base/layout.model";
 
@@ -40,6 +41,7 @@ export class TableComponent implements OnChanges {
   @Input() routePage: string = '';
   @Input() settings: ColumnSetting[] = [];
   @Input() searchText: string = '';
+  @Input() slash: string = '';
   columnMaps: ColumnSetting[] = [];
   keys: string[] = [];
 
@@ -118,13 +120,14 @@ export class TableComponent implements OnChanges {
     }
     console.log(this.endDate,this.startDate);
     if(this.endDate!=null && this.startDate!=null){
-      this.apis.readtasktype(this.api,{'StartDate':this.startDate,  "TaskType": this.taskType,'EndDate':this.endDate}).subscribe((res:any)=>{
+      this.apis.special(this.api, {'StartDate':this.startDate,  "TaskType": this.taskType,'EndDate':this.endDate}, this.slash).subscribe((res:any)=>{
         console.log(res);
        
         this.records=res.records;
        },(err:any)=>{
          this.records=[];  
        })
+       
     }
 
 

@@ -4,7 +4,7 @@
   </div>
 
 <tsktable *ngIf="baseItems" [records]="baseItems" [caption]="'Monthly Performance Review'" [settings]="projectSettings"
- [searchText]="searchText" [loading]="loading" [sn]="true" [api]="apis" [taskType]="type">
+ [searchText]="searchText" [slash]="'readtasktype'" [loading]="loading" [sn]="true" [api]="'task'" [name]="apis" [taskType]="type" [routePage]="routePage">
 </tsktable>
 
 

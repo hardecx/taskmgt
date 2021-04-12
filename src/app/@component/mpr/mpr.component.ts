@@ -12,8 +12,8 @@ import { BaseComponent } from '../base/base.component';
 })
 export class MprComponent extends BaseComponent implements OnInit {
 
-  // routePage ="../edit";
-  apis='task'
+  routePage = `../timeline`;
+  apis='report'
   type="MPR"
   projectSettings: ColumnSetting[] = [
     {
@@ -54,10 +54,10 @@ export class MprComponent extends BaseComponent implements OnInit {
       primaryKey: "Department",
       header: "Department",
     },
-    {
-      primaryKey: "DepartmentHOD",
-      header: "Department Head",
-    },
+    // {
+    //   primaryKey: "DepartmentHOD",
+    //   header: "Department Head",
+    // },
 
     {
       primaryKey: "Status",

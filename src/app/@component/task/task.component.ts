@@ -326,7 +326,7 @@ approved(){
   )
 }
 timeline(){
-this.router.navigateByUrl(`main/timeline/${this.apis}`)
+this.router.navigateByUrl(`main/timeline/${this.apis}/${this.api}/TaskID/${this.name}`)
 }
 approveTask() {
   this.complete.get("TaskID")?.setValue(this.array.TaskID)

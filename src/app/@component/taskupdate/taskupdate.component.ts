@@ -15,6 +15,11 @@ export class TaskupdateComponent extends BaseComponent implements OnInit {
 
   routePage ="../create";
   apis='task'
+  d = new Date();
+  date = this.d.getDate();
+  month = this.d.getMonth() + 1; // Since getMonth() returns month from 0-11 not 1-12
+  year = this.d.getFullYear();
+  months = this.d.getMonth()
   projectSettings: ColumnSetting[] = [
     {
       primaryKey: "TaskID",
@@ -74,7 +79,19 @@ export class TaskupdateComponent extends BaseComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.readbyresponsibleowner(APIENUM.Task);
+    var dateStr =(this.year + "-" + this.month + "-" + this.date).toString();
+
+    if(this.months === 0){
+      this.months = 12;
+      this.year  = this.d.getFullYear() -1;
+      var dateSt = (this.year + "-" + this.months + "-" + this.date).toString();
+    } else {
+      var dateSt =(this.year + "-" + this.months + "-" + this.date).toString();
+    }
+    this.readbyresponsibleowner(APIENUM.Task, {
+      "StartDate":dateSt,
+      "EndDate":dateStr,
+    });
   }
 
 }

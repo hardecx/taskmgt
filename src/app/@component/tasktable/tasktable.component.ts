@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/@service/api.service';
 import { APIENUM } from 'src/app/@service/api.type';
 import { ColumnSetting } from 'src/app/models/layout.model';
@@ -14,7 +14,13 @@ export class TasktableComponent extends BaseComponent implements OnInit {
 
 
   routePage ="../create";
-  apis='task'
+  apis='task';
+  Apis:any;
+  d = new Date();
+  date = this.d.getDate();
+  month = this.d.getMonth() + 1; // Since getMonth() returns month from 0-11 not 1-12
+  year = this.d.getFullYear();
+  months = this.d.getMonth()
   projectSettings: ColumnSetting[] = [
     {
       primaryKey: "TaskID",
@@ -69,13 +75,25 @@ export class TasktableComponent extends BaseComponent implements OnInit {
 
   ];
 
-  constructor(public api:ApiService,public enums: APIENUM,public router:Router) {
+  constructor(public api:ApiService,public enums: APIENUM,public router:Router, public route: ActivatedRoute) {
     super(api, APIENUM.Task);
   }
 
 
   ngOnInit() {
-    this.readbyposteduser(APIENUM.Task);
+    var dateStr =(this.year + "-" + this.month + "-" + this.date).toString();
+
+    if(this.months === 0){
+      this.months = 12;
+      this.year  = this.d.getFullYear() -1;
+      var dateSt = (this.year + "-" + this.months + "-" + this.date).toString();
+    } else {
+      var dateSt =(this.year + "-" + this.months + "-" + this.date).toString();
+    }
+    this.readbyposteduser(APIENUM.Task, {
+      "StartDate":dateSt,
+      "EndDate":dateStr,
+    });
   }
 
 }

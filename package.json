@@ -30,6 +30,7 @@
     "@swimlane/ngx-charts": "^17.0.0",
     "bootstrap": "^4.5.3",
     "html2canvas": "^1.0.0-rc.7",
+    "jquery": "^3.6.0",
     "jspdf": "^2.3.0",
     "ng-connection-service": "^1.0.4",
     "ngx-quicklink": "^0.2.6",

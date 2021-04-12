@@ -13,8 +13,9 @@ import { BaseComponent } from '../base/base.component';
 })
 export class EmmComponent extends BaseComponent implements OnInit {
 
-  // routePage ="../edit";
-  apis='customer'
+  routePage = `../timeline`;
+  apis='report'
+  type="EMM"
   projectSettings: ColumnSetting[] = [
     {
       primaryKey: "TaskID",
@@ -54,10 +55,10 @@ export class EmmComponent extends BaseComponent implements OnInit {
       primaryKey: "Department",
       header: "Department",
     },
-    {
-      primaryKey: "DepartmentHOD",
-      header: "Department Head",
-    },
+    // {
+    //   primaryKey: "DepartmentHOD",
+    //   header: "Department Head",
+    // },
 
     {
       primaryKey: "Status",

@@ -3,10 +3,16 @@
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
 @import "~bootstrap/dist/css/bootstrap.min.css";
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
 
-$font-family: 'Roboto', sans-serif;
-$font-size-base: 0.925rem;
+@font-face {
+  font-family: 'Circular';
+  src: url('assets/font/Circular-Book.eot') format('embedded-opentype'),
+       url('assets/font/Circular-Book.woff') format('woff'),
+       url('assets/font/Circular-Book.ttf') format('truetype'),
+
+  }
+$font-family: 'Circular';
+$font-size-base: 0.9rem;
 
 
 /***************************************************

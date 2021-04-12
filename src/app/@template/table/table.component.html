@@ -106,13 +106,13 @@
         <div class="panel-body">
       
     
-          <input (change)="filterabyDate($event,'s')" type="date" name="search" autocomplete="off" class="form-control searchfield" placeholder="Start date:"> 
+          <input (change)="filterabyDate($event,'s')" type="date" name="search" autocomplete="off" class="form-control searchfield" placeholder="From:"> 
           
         </div>
       </div>
       <div class="col" *ngIf="dateShow">
         <div class="panel-body">
-          <input  (change)="filterabyDate($event,'e')" type="date" name="search" autocomplete="off" class="form-control searchfield"  placeholder="End date:"> 
+          <input  (change)="filterabyDate($event,'e')" type="date" name="search" autocomplete="off" class="form-control searchfield"  placeholder="To:"> 
         </div>
         
       </div>

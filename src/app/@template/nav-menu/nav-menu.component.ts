@@ -32,12 +32,12 @@ export class NavMenuComponent  {
           link: 'mpr',
         },
         {
-          title: 'Executive Management meeting',
+          title: 'Executive Management Meeting',
         //  icon: faAddressBook,
           link: 'emm',
         },
         {
-          title: 'Other meetings',
+          title: 'Other Tasks',
         //  icon: faAddressBook,
           link: 'others',
         }
