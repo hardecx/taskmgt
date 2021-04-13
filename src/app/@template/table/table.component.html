@@ -105,13 +105,15 @@
       <div class="col" *ngIf="dateShow">
         <div class="panel-body">
       
-    
+          <label class="m-1">From: </label>
           <input (change)="filterabyDate($event,'s')" type="date" name="search" autocomplete="off" class="form-control searchfield" placeholder="From:"> 
           
         </div>
       </div>
       <div class="col" *ngIf="dateShow">
         <div class="panel-body">
+          
+          <label class="m-1">To: </label>
           <input  (change)="filterabyDate($event,'e')" type="date" name="search" autocomplete="off" class="form-control searchfield"  placeholder="To:"> 
         </div>
         
@@ -170,7 +172,7 @@
             {{ record[map.primaryKey]  | currency:'₦':'symbol' }}
           </span>
           <span *ngIf="map.date">
-            {{ record[map.primaryKey]  | date:'medium' }}
+            {{ record[map.primaryKey]  | date:'mediumDate' }}
           </span>
           <span *ngIf="map.primaryKey==='Status'|| map.header==='Status'">
             <span *ngIf="record[map.primaryKey] ==='Work In Progress'"

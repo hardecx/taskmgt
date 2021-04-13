@@ -109,8 +109,8 @@ export class TaskComponent implements OnInit {
           this.task = this._fb.group({
             TaskID:[this.array.TaskID,Validators.required],
             ActionItem:[this.array.ActionItem,Validators.required],
-            StartDate:[this.array.StartDate.replace(' ', 'T'),Validators.required],
-            EndDate:[this.array.EndDate.replace(' ', 'T'),Validators.required],
+            StartDate:[this.array.StartDate,Validators.required],
+            EndDate:[this.array.EndDate,Validators.required],
             TaskType:[this.array.TaskType,Validators.required],
             TaskTypeName:[this.array.TaskTypeName,Validators.required],
             TaskDescription:[this.array.TaskDescription,Validators.required],
@@ -192,7 +192,7 @@ createTask() {
     this.task.disable();
 
 console.log({...this.task.value})
-    this.api.create(APIENUM.Task,{...this.task.value, TaskType:this.TaskID,  EndDate:this.task.value.EndDate.replace('T', ' '), StartDate:this.task.value.StartDate.replace('T', ' ')}).subscribe((res:any)=>{
+    this.api.create(APIENUM.Task,{...this.task.value, TaskType:this.TaskID,  EndDate:this.task.value.EndDate, StartDate:this.task.value.StartDate}).subscribe((res:any)=>{
       this.loading = false;
       this.task.reset();
       this.success = res.message;
@@ -256,7 +256,7 @@ update(){
   this.loading=true;
   this.task.disable();
 
-  this.api.update(APIENUM.Task,{...this.task.value, EndDate:this.task.value.EndDate.replace('T', ' '), StartDate:this.task.value.StartDate.replace('T', ' ')})
+  this.api.update(APIENUM.Task,{...this.task.value, EndDate:this.task.value.EndDate, StartDate:this.task.value.StartDate})
   .subscribe((res:any)=>{
     this.loading = false;
     this.task.reset();
