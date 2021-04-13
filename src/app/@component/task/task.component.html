@@ -50,8 +50,8 @@
 
     <div class="col-lg-4 col-sm-12">
       <label for="inputEmail" class="label">Start Date</label>
-      <input *ngIf="create || edit" class="form-control" type="datetime-local" [ngClass]="{ 'is-invalid': submitted && T.StartDate.errors }" formControlName="StartDate">
-      <input *ngIf="approve" class="form-control" type="datetime-local"  formControlName="StartDate" readonly>
+      <input *ngIf="create || edit" class="form-control" type="date" [ngClass]="{ 'is-invalid': submitted && T.StartDate.errors }" formControlName="StartDate">
+      <input *ngIf="approve" class="form-control" type="date"  formControlName="StartDate" readonly>
       <div *ngIf="submitted && T.StartDate.errors" class="invalid-feedback mb-1">
         <div *ngIf="T.StartDate.errors.required">
           Please provide a Start Date.
@@ -61,8 +61,8 @@
 
     <div class="col-lg-4 col-sm-12">
       <label for="inputEmail" class="label">End Date</label>
-      <input *ngIf="create || edit" class="form-control" type="datetime-local" [ngClass]="{ 'is-invalid': submitted && T.EndDate.errors }" formControlName="EndDate">
-      <input *ngIf="approve" class="form-control" type="datetime-local"  formControlName="EndDate" readonly>
+      <input *ngIf="create || edit" class="form-control" type="date" [ngClass]="{ 'is-invalid': submitted && T.EndDate.errors }" formControlName="EndDate">
+      <input *ngIf="approve" class="form-control" type="date"  formControlName="EndDate" readonly>
       <div *ngIf="submitted && T.EndDate.errors" class="invalid-feedback mb-1">
         <div *ngIf="T.EndDate.errors.required">
           Please provide a End Date.
