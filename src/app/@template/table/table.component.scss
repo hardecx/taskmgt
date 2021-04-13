@@ -229,18 +229,18 @@ a {
   border-radius: 25px;
   border: 1px solid rgb(187, 187, 187);
   padding: 13px; 
-  width: 220px;
-  height: 50px; 
+  width: 200px;
+  height: 30px; 
 }
-input[type="date"]:before {
-  content: attr(placeholder) !important;
-  color: #aaa;
-  margin-right: 1em;
-}
-input[type="date"]:focus:before,
-input[type="date"]:valid:before {
-  content: "";
-}
+// input[type="date"]:before {
+//   content: attr(placeholder) !important;
+//   color: #aaa;
+//   margin-right: 1em;
+// }
+// input[type="date"]:focus:before,
+// input[type="date"]:valid:before {
+//   content: "";
+// }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
   background: transparent;
