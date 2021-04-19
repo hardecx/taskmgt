@@ -77,7 +77,6 @@ export class TaskupdateComponent extends BaseComponent implements OnInit {
   constructor(public api:ApiService,public enums: APIENUM,public router:Router) {
     super(api, APIENUM.Task);
   }
-
   ngOnInit() {
     var dateStr =(this.year + "-" + this.month + "-" + this.date).toString();
 
