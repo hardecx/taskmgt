@@ -10,15 +10,17 @@
     </figcaption>
   </figure>
   <div class="order-track">
-    <div class="order-track-step" *ngFor="let item of elements">
+    <div class="order-track-step" style="margin-bottom: 30px;" *ngFor="let item of elements">
       <div class="order-track-status">
         <span class="order-track-status-dot"></span>
         <span class="order-track-status-line"></span>
       </div>
-      <div class="order-track-text" >
-        <h6>{{item.Status}}</h6>
-        <p class="order-track-text-stat">{{item.Comment}}</p>
-        <span class="order-track-text-sub">By {{item.PostedUser}} on {{item.DateCreated | date: 'medium'}}</span>
+      <div class="order-track-text">
+        <h4>{{item.Status}}</h4>
+        <div class="container">
+          <p class="order-track-text-stat">{{item.Comment}}</p>
+        </div>
+        <span class="order-track-text-sub" style="font-style: italic;">By {{item.PostedUser}} on {{item.DateCreated | date: 'medium'}}</span>
       </div>
     </div>
     <span class="order-track-status-dots"></span>
@@ -41,7 +43,7 @@
     </div>
     <div class="col-md-6">
       <label for="inputLastName" class="label">Comment</label>  
-      <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" formControlName="Comment"></textarea>
+      <textarea maxlength="500" class="form-control rounded-0" id="exampleFormControlTextarea2" formControlName="Comment"></textarea>
 
     </div>
   </div>
