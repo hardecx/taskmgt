@@ -71,6 +71,7 @@ figure {
 
 .order-track {
   margin-top: 2rem;
+  margin-bottom: 2rem;
   border-top: 1px dashed $blueShade1;
   padding-top: 2.5rem;
   display: flex;
@@ -78,11 +79,11 @@ figure {
   
   &-step {
     display: flex;
-    height: 7rem;
+    height: fit-content;
     
     &:last-child {
       overflow: hidden;
-      height: 4rem;
+      height: fit-content;
       & .order-track-status span:last-of-type {
         display: none;
       }
@@ -103,7 +104,7 @@ figure {
       display: block;
       margin: 0 auto;
       width: 2px;
-      height: 7rem;
+      height: 10vh;
       background: $melorraOrange;
     }
     &-dots {
@@ -117,7 +118,8 @@ figure {
 
   &-text {
     &-stat {
-      font-size: 1.3rem;
+      height: fit-content;
+      font-size: 1.1rem;
       font-weight: 500;
       margin-bottom: 3px;
     }
