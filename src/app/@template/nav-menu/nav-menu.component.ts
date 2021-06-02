@@ -50,7 +50,7 @@ export class NavMenuComponent  {
         }
       ]
     }
-    if(sessionStorage.getItem('Email')==='rogunsipe@pagefinancials.com') {
+    if(sessionStorage.getItem('Email')==='rogunsipe@pagefinancials.com' || sessionStorage.getItem('Email')==='kichaver@pagefinancials.com') {
 
       this.Menu=   [
         {
